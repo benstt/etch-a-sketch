@@ -18,13 +18,15 @@ const createGrid = (numberOfSquaresPerSide) => {
     // Create n * n number of divs and append them to the grid container
     for (let i = 0; i < numberOfSquaresPerSide; ++i) {
         for (let j = 0; j < numberOfSquaresPerSide; ++j) {
-            let div = document.createElement("div");
+            const div = document.createElement("div");
             div.className = "square";
     
             squares.push(div);  // Keep track of divs
             container.appendChild(div);
         }
     }
+
+    addColoringListeners();
 }
 
 // Reset (set color back to default) the grid 
@@ -48,7 +50,7 @@ const deleteGrid = () => {
 }
 
 // Add event listeners to all the divs in the grid
-const addListeners = () => {
+const addColoringListeners = () => {
     squares.forEach(square => {
         square.addEventListener('mouseenter', () => {
             // Add class name for coloring
@@ -58,7 +60,6 @@ const addListeners = () => {
 }
 
 createGrid(INITIAL_SQUARES_NUMBER);
-addListeners()
 
 newGridButton.addEventListener('click', () => {
     let numberOfSquares = prompt("Enter the amount of squares you want for the grid! Default: 16");
@@ -68,6 +69,5 @@ newGridButton.addEventListener('click', () => {
 
     deleteGrid();
     createGrid(numberOfSquares);
-    addListeners();
 });
 resetButton.addEventListener('click', resetGrid);
