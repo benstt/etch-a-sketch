@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;700&display=swap');
+
+:root {
+    --square-size: 16px;
+    --number-squares: 16;
+    --default-squares: 16;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Signika Negative', sans-serif;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+button {
+    padding: 7px 10px;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#grid-container {
+    display: grid; 
+    grid-template-columns: repeat(var(--number-squares), 1fr);
+    grid-template-rows: repeat(var(--number-squares), 1fr);
+    justify-content: center;
+    align-items: center;
+}
+
+#title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 40px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.square {
+    width: auto; 
+    height: calc((var(--square-size) / var(--number-squares)) * var(--default-squares)); 
+    min-width: calc((var(--square-size) / var(--number-squares)) * var(--default-squares));
+    border: 1px solid black;
+}
+
+.square.colored {
+    background-color: black;
+}
